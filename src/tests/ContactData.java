@@ -1,3 +1,5 @@
+package tests;
+
 public class ContactData{
 
     public String first_name;
