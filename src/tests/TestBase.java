@@ -26,11 +26,11 @@ public class TestBase {
     @DataProvider
     public Iterator<Object[]> randomValidGroupGenerator(){
         List<Object[]> list = new ArrayList<Object[]>();
-        for (int i=0; i<5; i++){
-            GroupData group = new GroupData();
-            group.groupname = generateRandomString();
-            group.header = generateRandomString();
-            group.footer = generateRandomString();
+        for (int i=0; i<2; i++){
+            GroupData group = new GroupData()
+                    .withName(generateRandomString())
+                    .withHeader(generateRandomString())
+                    .withFooter(generateRandomString());
             list.add(new Object[]{group});
         }
         return list.iterator();
@@ -40,11 +40,11 @@ public class TestBase {
     public Iterator<Object[]> randomValidContactGenerator(){
         List<Object[]> list = new ArrayList<Object[]>();
         for (int i=0; i<10; i++){
-            ContactData contact = new ContactData();
-            contact.first_name = generateRandomString();
-            contact.second_name = generateRandomString();
-            contact.email = generateRandomString();
-            contact.address = generateRandomString();
+            ContactData contact = new ContactData()
+                    .withFirst_name(generateRandomString())
+                    .withSecond_name(generateRandomString())
+                    .withEmail(generateRandomString())
+                    .withAddress(generateRandomString());
             list.add(new Object[]{contact});
         }
         return list.iterator();
