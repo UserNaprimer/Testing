@@ -8,11 +8,24 @@ public class NavigationHelper extends HelperBase {
         super(manager);
     }
 
-    public void openMainPage() {
-        driver.get(manager.baseUrl + "/");
+    public void mainPage() {
+        if (! onMainPage()){
+            click(By.linkText("home"));
+        }
     }
 
-    public void gotoGroupsPage() {
-        click(By.linkText("groups"));
+    private boolean onMainPage() {
+       return driver.findElements(By.id("maintable")).size() > 0;
+    }
+
+    public void groupsPage() {
+        if(! onGroupPage()){
+            click(By.linkText("groups"));
+        }
+    }
+
+    private boolean onGroupPage() {
+        return (driver.getCurrentUrl().contains("/group.php")
+        && driver.findElements(By.name("new")).size() > 0);
     }
 }
