@@ -42,7 +42,7 @@ public class ContactHelper extends HelperBase{
         return this;
     }
 
-    public ContactHelper modifyContact(ContactData contact, int index) {//важен ли порядок аргументов, узнать
+    public ContactHelper modifyContact(ContactData contact, int index) {
         initContactModification(index+1);//1
         fillContactForm(contact);
         submitContactModification();
